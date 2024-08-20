@@ -1,17 +1,16 @@
-package com.example.java.kotlin;
+package com.example.java.kotlin.java_code;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.java.kotlin.title.TitleManager;
+import com.example.java.kotlin.R;
+import com.example.java.kotlin.java_code.title.TitleManager;
 
 public class JavaMainActivity extends AppCompatActivity {
 
@@ -26,10 +25,14 @@ public class JavaMainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        titleManager = new TitleManager();
-        titleManager.init();
+        initTitleManager();
         initViews();
         initListeners();
+    }
+
+    private void initTitleManager() {
+        titleManager = new TitleManager();
+        titleManager.init();
     }
 
     private void initListeners() {

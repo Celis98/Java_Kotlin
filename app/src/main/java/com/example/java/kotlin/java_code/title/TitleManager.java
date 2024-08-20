@@ -1,4 +1,4 @@
-package com.example.java.kotlin.title;
+package com.example.java.kotlin.java_code.title;
 
 public class TitleManager {
 
