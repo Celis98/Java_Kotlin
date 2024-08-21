@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kotlin_code.second_activity.SecondActivity">
+
+    <TextView
+        android:id="@+id/tvSecondTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Segunda Actividad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--
+    LinearLayout allows to order views in an horizontal or vertical way
+    -->
+
+    <LinearLayout
+        android:id="@+id/llTextViews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
+        android:background="@android:color/holo_red_light"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSwitchLL">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:text="TextView 1" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:text="TextView 2" />
+    </LinearLayout>
+
+    <!--
+    FrameLayout allows to order views in a more "free way" setting every view its own gravity
+    start|top|end|bottom
+
+    avoid the use of left, right
+    -->
+    <FrameLayout
+        android:id="@+id/flTextViews"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="32dp"
+        android:background="@android:color/holo_blue_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:text="Top Left" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:text="Bottom End" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Center" />
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/etUserText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Ingresar texto"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llTextViews" />
+
+    <Button
+        android:id="@+id/btnGrabText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Capturar Texto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUserText" />
+
+    <TextView
+        android:id="@+id/tvUserText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hola"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGrabText" />
+
+    <Button
+        android:id="@+id/btnSwitchLL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Cambiar LinearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSecondTitle" />
+
+    <!--
+    Constraints don't need to be start with start, end with end... constraints can be freely
+    created based on the current need
+
+    Important exception, horizontal and vertical can't be mixed, for example, there is nothing like
+    layout_constraintEnd_toTopOf
+
+    layout_constraintBottom_toTopOf connects bottom of tvConstrained to the top of flTextViews
+    layout_constraintEnd_toStartOf connects the end (right) of tvConstrained to the start (left) of tvUserText
+    layout_constraintStart_toStartOf connects the start (left) of tvConstrained with the start of btnGrabText
+    layout_constraintTop_toBottomOf connects the top of tvConstrained with the bottom of btnGrabText
+    -->
+    <TextView
+        android:id="@+id/tvConstrained"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contrained Text"
+        app:layout_constraintBottom_toTopOf="@+id/flTextViews"
+        app:layout_constraintEnd_toStartOf="@+id/tvUserText"
+        app:layout_constraintStart_toStartOf="@+id/btnGrabText"
+        app:layout_constraintTop_toBottomOf="@+id/btnGrabText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,15 +12,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.java.kotlin.R;
 import com.example.java.kotlin.java_code.title.TitleManager;
 
+/**
+ * Legacy activity made with Java
+ */
 public class JavaMainActivity extends AppCompatActivity {
 
+    /**
+     * TitleManager in charge of switching the current title and store it
+     */
     private TitleManager titleManager;
 
+    /**
+     * Views
+     */
     private Button btnUpdateTitle;
     private Button btnSayHello;
     private TextView tvTitle;
     private SeekBar sbTitleOpacity;
 
+    /**
+     * First function called when an activity is launched
+     * Here we call the mandatory functions to make our activity works as expected
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +43,17 @@ public class JavaMainActivity extends AppCompatActivity {
         initListeners();
     }
 
+    /**
+     * Init TitleManager
+     */
     private void initTitleManager() {
         titleManager = new TitleManager();
         titleManager.init();
     }
 
+    /**
+     * Init views listeners
+     */
     private void initListeners() {
         btnUpdateTitle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +90,10 @@ public class JavaMainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Views initialization, without this function, everytime we call a view
+     * the app will throw a NPE
+     */
     private void initViews() {
         btnUpdateTitle = findViewById(R.id.btnUpdateTitle);
         btnSayHello = findViewById(R.id.btnSayHello);
